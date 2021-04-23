@@ -1,0 +1,76 @@
+<form class="form-container" [formGroup]="form" (ngSubmit)="save()">
+  <div class="form-group">
+    <label for="exampleInputName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      id="exampleInputName"
+      placeholder="Name"
+      maxlength="30"
+    />
+    <small *ngIf="nameNotValid" class="text-danger">
+      This field is required
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPatronus">Patronus</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="patronus"
+      id="exampleInputPatronus"
+      placeholder="Patronus"
+      maxlength="30"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="age"
+      id="exampleInputPassword1"
+      placeholder="Age"
+    />
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Profile Image</label>
+      <input
+        type="file"
+        (change)="readUrl($event)"
+        class="form-control-file"
+        formControlName="image"
+        id="exampleFormControlFile1"
+      />
+    </div>
+    <img *ngIf="url" [src]="url" class="image-people" />
+  </form>
+  <button type="submit" class="btn btn-primary mb-3 mt-3">Submit</button>
+</form>
+
+<table class="table table-striped animated fadeIn">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">patronus</th>
+      <th scope="col">age</th>
+      <th scope="col">image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of data">
+      <td>{{ student.name }}</td>
+      <td>{{ student.patronus }}</td>
+      <td>{{ student.age }}</td>
+      <td>
+        <img
+          [src]="student.image"
+          alt="..."
+          class="img-thumbnail image-people"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

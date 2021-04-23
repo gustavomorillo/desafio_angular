@@ -1,0 +1,33 @@
+<h1 class="animated fadeIn fast">Characters </h1>
+<hr>
+<div class="animated fadeIn">
+
+
+<select class="form-control mb-3"  (change)="onChange($event)">
+    <option value="none">Please select a House</option>
+    <option value="slytherin">Slytherin</option>
+    <option value="gryffindor">Gryffindor</option>
+    <option value="ravenclaw">Ravenclaw</option>
+    <option value="hufflepuff">Hufflepuff</option>
+</select>
+
+<table class="table table-striped animated fadeIn">
+    <thead>
+      <tr>
+
+        <th scope="col">name</th>
+        <th scope="col">patronus</th>
+        <th scope="col">age</th>
+        <th scope="col">image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of characters">
+        <td>{{character.name}}</td>
+        <td>{{character.patronus}}</td>
+        <td>{{character.dateOfBirth | customPipes}}</td>
+        <td><img [src]="character.image" alt="..." class="img-thumbnail image-people"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+<h1 class="animated fadeIn fast">Students </h1>
+<hr>
+<div class="animated fadeIn">
+<div class="div-btn-add">
+  <button type="button" class="btn btn-danger" routerLink="/newStudent">Add new student</button>
+</div>
+
+<table class="table table-striped animated fadeIn">
+    <thead>
+      <tr>
+
+        <th scope="col">name</th>
+        <th scope="col">patronus</th>
+        <th scope="col">age</th>
+        <th scope="col">image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.name}}</td>
+        <td>{{student.patronus}}</td>
+        <td>{{student.dateOfBirth | customPipes}}</td>
+        <td><img [src]="student.image" alt="..." class="img-thumbnail image-people"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="div-btn-add">
+    <button type="button" class="btn btn-danger">Add new student</button>
+</div>
